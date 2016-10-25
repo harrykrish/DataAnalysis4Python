@@ -98,7 +98,13 @@ for i in range(len(filedata)):
                     else:
                         timewise['night']+=1
 print(timewise)
-        
+import csv
+with open('C:\\Users\harikrishna\\Desktop\\timewise.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(["Time of Day", "Number of Tweets"])
+    for key, value in timewise.items():
+        writer.writerow([key, value])
+       
 #Maximum retweeted tweet for each query term
 separatei=query
 mydictt2={}
