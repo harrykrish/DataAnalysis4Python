@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9100.15.1106.2334                                -->
+<workbook source-platform='win' version='9.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='day' inline='true' name='textscan.42668.074560729168' version='9.1'>
+      <connection class='textscan' directory='C:/Users/harikrishna/Desktop' filename='day.csv' password='' server='' username='' />
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Evening,0 - Split 1' datatype='string' name='[evening,0 - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[textscan.42668.074560729168].[evening,0]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [evening,0], &quot;,&quot;, 1 ) )' />
+      </column>
+      <column caption='Evening,0 - Split 2' datatype='string' name='[evening,0 - Split 2]' role='dimension' type='nominal' user:SplitFieldIndex='2' user:SplitFieldOrigin='[textscan.42668.074560729168].[evening,0]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [evening,0], &quot;,&quot;, 2 ) )' />
+      </column>
+      <column caption='Evening,0' datatype='string' hidden='true' name='[evening,0]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='day (2)' inline='true' name='textscan.42668.078636192127' version='9.1'>
+      <connection class='textscan' directory='C:/Users/harikrishna/Desktop' filename='day.csv' password='' server='' username='' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='day2' inline='true' name='textscan.42668.079342430552' version='9.1'>
+      <connection class='textscan' directory='C:/Users/harikrishna/Desktop' filename='day2.csv' password='' server='' username=''>
+        <relation name='day2#csv' table='[day2#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US'>
+            <column datatype='string' name='Time of Day,Number of Tweets' ordinal='0' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Time of Day,Number of Tweets</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Time of Day,Number of Tweets]</local-name>
+            <parent-name>[day2#csv]</parent-name>
+            <remote-alias>Time of Day,Number of Tweets</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[day2#csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='record-delimiter'>&quot;\\r&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='CountD' caption='Time of Day' datatype='string' name='[Time of Day,Number of Tweets - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[textscan.42668.079342430552].[Time of Day,Number of Tweets]'>
+        <calculation class='tableau' formula='TRIM( SPLIT( [Time of Day,Number of Tweets], &quot;,&quot;, 1 ) )' />
+      </column>
+      <column aggregation='CountD' caption='Total Count of Tweets' datatype='real' datatype-customized='true' name='[Time of Day,Number of Tweets - Split 2]' role='measure' type='quantitative' user:SplitFieldIndex='2' user:SplitFieldOrigin='[textscan.42668.079342430552].[Time of Day,Number of Tweets]'>
+        <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [Time of Day,Number of Tweets], &quot;,&quot;, 2 ) ))' />
+      </column>
+      <column datatype='string' hidden='true' name='[Time of Day,Number of Tweets]' role='dimension' type='nominal' />
+      <column-instance column='[Time of Day,Number of Tweets - Split 1]' derivation='None' name='[none:Time of Day,Number of Tweets - Split 1:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Time of Day,Number of Tweets - Split 1:nk]' type='palette'>
+            <map to='#1f77b4'>
+              <bucket>&quot;&quot;</bucket>
+            </map>
+            <map to='#2ca02c'>
+              <bucket>&quot;evening&quot;</bucket>
+            </map>
+            <map to='#9467bd'>
+              <bucket>&quot;night&quot;</bucket>
+            </map>
+            <map to='#d62728'>
+              <bucket>&quot;morning&quot;</bucket>
+            </map>
+            <map to='#ff7f0e'>
+              <bucket>&quot;afternoon&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <filter class='categorical' column='[Time of Day,Number of Tweets - Split 1]' filter-group='2'>
+        <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+          <groupfilter function='level-members' level='[Time of Day,Number of Tweets - Split 1]' />
+          <groupfilter function='member' level='[Time of Day,Number of Tweets - Split 1]' member='%null%' />
+        </groupfilter>
+      </filter>
+      <filter class='quantitative' column='[Time of Day,Number of Tweets - Split 2]' filter-group='2' included-values='non-null' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='day2' name='textscan.42668.079342430552' />
+          </datasources>
+          <datasource-dependencies datasource='textscan.42668.079342430552'>
+            <column aggregation='CountD' caption='Time of Day' datatype='string' name='[Time of Day,Number of Tweets - Split 1]' role='dimension' type='nominal' user:SplitFieldIndex='1' user:SplitFieldOrigin='[textscan.42668.079342430552].[Time of Day,Number of Tweets]'>
+              <calculation class='tableau' formula='TRIM( SPLIT( [Time of Day,Number of Tweets], &quot;,&quot;, 1 ) )' />
+            </column>
+            <column aggregation='CountD' caption='Total Count of Tweets' datatype='real' datatype-customized='true' name='[Time of Day,Number of Tweets - Split 2]' role='measure' type='quantitative' user:SplitFieldIndex='2' user:SplitFieldOrigin='[textscan.42668.079342430552].[Time of Day,Number of Tweets]'>
+              <calculation class='tableau' formula='FLOAT(TRIM( SPLIT( [Time of Day,Number of Tweets], &quot;,&quot;, 2 ) ))' />
+            </column>
+            <column datatype='string' hidden='true' name='[Time of Day,Number of Tweets]' role='dimension' type='nominal' />
+            <column-instance column='[Time of Day,Number of Tweets - Split 2]' derivation='Attribute' name='[attr:Time of Day,Number of Tweets - Split 2:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Time of Day,Number of Tweets - Split 1]' derivation='None' name='[none:Time of Day,Number of Tweets - Split 1:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <sort class='alphabetic' column='[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 1:nk]' direction='DESC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#4f6e8d' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 1:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 1:nk]</rows>
+        <cols>[textscan.42668.079342430552].[attr:Time of Day,Number of Tweets - Split 2:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 1:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='57'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 1:nk]</field>
+          <field>[textscan.42668.079342430552].[none:Time of Day,Number of Tweets - Split 2:nk]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='142' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
